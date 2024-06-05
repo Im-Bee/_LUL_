@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Private">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Public">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="PCH">
+      <UniqueIdentifier>{f3ae5f43-acf3-478e-9a74-2e3e9b905561}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Debugging">
+      <UniqueIdentifier>{8d23bf21-79d4-429c-aea9-e8778fddf85d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Debugging">
+      <UniqueIdentifier>{7c172dbd-413f-4945-a6b4-f6bc24c8c65f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Core">
+      <UniqueIdentifier>{48a60af3-046f-4871-a7d9-a929c4e318ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Core">
+      <UniqueIdentifier>{a2a8a117-b875-4d1f-b10c-2b3703ddda7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\EntryPoint">
+      <UniqueIdentifier>{23d1775b-f62d-42e4-9112-7e30a99b7faf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\EntryPoint\Win32">
+      <UniqueIdentifier>{73a767e8-969f-4572-9fb0-5fca9e563804}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Integration">
+      <UniqueIdentifier>{51f1a35b-52dc-4bde-8194-3b6f7b2e4509}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Git">
+      <UniqueIdentifier>{e724e776-ca4e-43ba-9eea-31ee40a4d78f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Build">
+      <UniqueIdentifier>{1f5b28d6-7f68-4ee8-80fa-1bb6e5144772}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Build\Scripts">
+      <UniqueIdentifier>{2311f132-ae36-4e78-9a88-4d958270f8b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Build\Scripts\Win32">
+      <UniqueIdentifier>{903c8685-4ce0-4d8e-a767-597f53439169}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Build\CMake">
+      <UniqueIdentifier>{d8078989-368c-4553-ada2-1a16d178460b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Utilities">
+      <UniqueIdentifier>{81d42b8e-82b3-424e-b2a6-885bb5790378}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Utilities">
+      <UniqueIdentifier>{6e7a89cb-51f5-44ec-8fa1-539342e5724c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External">
+      <UniqueIdentifier>{80f0528c-7c9a-43be-99c6-c3a6dfafc922}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\_LUL_Base.h">
+      <Filter>PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Debugging\Logger.hpp">
+      <Filter>Public\Debugging</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Core\AppProperties.hpp">
+      <Filter>Public\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Core\IApplication.hpp">
+      <Filter>Public\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\EntryPoint\Win32\Entry.hpp">
+      <Filter>Public\EntryPoint\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Integration\Types.h">
+      <Filter>Public\Integration</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Debugging\Exceptions.hpp">
+      <Filter>Public\Debugging</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Integration\Limits.h">
+      <Filter>Public\Integration</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Core\AppManager.hpp">
+      <Filter>Public\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Utilities\LPair.hpp">
+      <Filter>Public\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Utilities\LTuple.hpp">
+      <Filter>Public\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Utilities\LAllocator.hpp">
+      <Filter>Public\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Utilities\LVector.hpp">
+      <Filter>Public\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_LUL_Profiler\Include\LUL_Profiler.h">
+      <Filter>External</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Utilities\LQueue.hpp">
+      <Filter>Public\Utilities</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Debugging\Logger.cpp">
+      <Filter>Private\Debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\AppProperties.cpp">
+      <Filter>Private\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\AppManager.cpp">
+      <Filter>Private\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\IApplication.cpp">
+      <Filter>Private\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Debugging\Exceptions.cpp">
+      <Filter>Private\Debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utilities\LAllocator.cpp">
+      <Filter>Private\Utilities</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\.gitignore">
+      <Filter>Git</Filter>
+    </None>
+    <None Include="..\..\.gitattributes">
+      <Filter>Git</Filter>
+    </None>
+    <None Include="..\..\BuildScripts\Win32\ProjectPostBuildScript.bat">
+      <Filter>Build\Scripts\Win32</Filter>
+    </None>
+    <None Include="..\..\CMake\Makefile">
+      <Filter>Build\CMake</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\CMake\CMakeLists.txt">
+      <Filter>Build\CMake</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
