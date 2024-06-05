@@ -64,7 +64,7 @@ namespace _LUL_
 
 		std::atomic<LBOOL> m_bThreadStatus = false;
 
-		_LUL_::LTuple<Severity, LWCHAR*, LCHAR*> m_
+		// _LUL_::LTuple<Severity, LWCHAR*, LCHAR*> m_
 
 	};
 }

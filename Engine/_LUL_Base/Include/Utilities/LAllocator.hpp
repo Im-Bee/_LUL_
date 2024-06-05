@@ -272,7 +272,7 @@ namespace _LUL_
 				this->m_uByteCapacity,
 				(void*)other.m_uBegBuffPosition,
 				other.m_uByteCapacity);
-			L_LOG(Error, L"DExperimentalAllocator(const DExperimentalAllocator<T, R>& other) noexcept: errno_t %d", e);
+			// L_CONSOLE_OUT(Error, L"DExperimentalAllocator(const DExperimentalAllocator<T, R>& other) noexcept: errno_t %d", e);
 
 			LUINT64 otherBtoCdiff = other.m_uCurBuffPosition - other.m_uBegBuffPosition;
 			this->m_uCurBuffPosition = this->m_uBegBuffPosition + otherBtoCdiff;
