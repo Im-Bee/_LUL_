@@ -141,7 +141,7 @@ _LUL_::LAllocator::LAllocator(const LUINT64& uInitialByteSize)
 #   error "_LUL_::LAllocator::LAllocator(const LUINT64& uInitialByteSize) not implemented on current system."
 #endif
     if (_RawBuffer == nullptr)
-        throw new L_EXCEPT_BAD_ALLOC();
+        throw new L_EXCEPTION_BAD_ALLOC();
 
     m_uBegBuffPosition = reinterpret_cast<MEM_LOCATION>(_RawBuffer);
     m_uEndBuffPosition = m_uBegBuffPosition + m_uByteCapacity;
@@ -209,7 +209,7 @@ void _LUL_::LAllocator::_Resize(const LUINT64& uByteResize)
     if (reallocPtr == nullptr)
     {
         // TO DO: Fiugre out what to do after HeapReAlloc fails.
-        throw new L_EXCEPT_BAD_ALLOC();
+        throw new L_EXCEPTION_BAD_ALLOC();
     }
 
     _RawBuffer          = reallocPtr;

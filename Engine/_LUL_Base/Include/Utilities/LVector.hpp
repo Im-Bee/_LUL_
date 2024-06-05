@@ -11,7 +11,15 @@ namespace _LUL_
 		LUINT64 m_uAllocated = 0;
 
 	public:
-		void Push(const LUINT32& itm)
+		void Push(const T& itm)
+		{
+			if (m_uAllocated > this->Capacity())
+				this->Resize();
+
+			static_cast<LUINT32*>(this->_RawBuffer)[m_uAllocated++] = itm;
+		}
+		
+		void Push(T&& itm)
 		{
 			if (m_uAllocated > this->Capacity())
 				this->Resize();
@@ -26,18 +34,22 @@ namespace _LUL_
 
 		void Pop()
 		{
-			if (m_uAllocated <= 0)
-				return; 
+			if (m_uAllocated == 0)
+			{
+				return;
+			}
+			if (m_uAllocated < 0)
+			{
+				L_CONSOLE_OUT(L"Allocated counter in LVector is less then 0. Setting to 0.");
+				m_uAllocated = 0;
+				return;
+			}
 
 			--m_uAllocated;
 		}
 
-		T* Front() { return this->_RawBuffer[0]; }
-		T* Back() { return this->_RawBuffer[(m_uAllocated - 1)]; }
-
-
-		T* begin() { return (T*)(this->Begin()); }
-		T* end() { return (T*)(this->Begin() + (m_uAllocated * sizeof(T))); }
+		T* begin() { return (T*)(this->_BeginML()); }
+		T* end() { return (T*)(this->_BeginML() + (m_uAllocated * sizeof(T))); }
 	};
 }
 

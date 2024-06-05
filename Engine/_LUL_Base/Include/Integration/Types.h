@@ -9,7 +9,7 @@
 		enum KnownPaths
 		{
 			LogDirectory = 0x00,
-			Executable = 0x01,
+			ExecutableDirectory = 0x01,
 	#if _WIN32 || _WIN64
 			AppData = 0x02,
 			Count = 3

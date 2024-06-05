@@ -6,14 +6,14 @@ struct _LUL_::LExceptionData::Impl
 	LCHAR FunctionName[LUL_MAX_ERROR_MSG] = { 0 };
 	// TO DO: Stacktrace.
 	LCHAR File[LUL_MAX_PATH_SIZE] = { 0 };
-	LINT32 Line = 0;
+	LUINT32 Line = 0;
 };
 
 _LUL_::LExceptionData::LExceptionData(
 	LCHAR const* const sMsg, 
 	LCHAR const* const sFunction, 
 	LCHAR const* const sFile, 
-	const LINT32 line) noexcept
+	const LUINT32 line) noexcept
 {
 	constexpr LCHAR emptyStr[] = "";
 	constexpr LCHAR noMsgStr[] = "No message provided.";
@@ -89,7 +89,7 @@ const LCHAR* _LUL_::LExceptionData::GetFunctionName() noexcept
 		DataCorruptionMessage;
 }
 
-const LINT32& _LUL_::LExceptionData::GetLine() noexcept
+const LUINT32& _LUL_::LExceptionData::GetLine() noexcept
 {
 	return m_pImpl ?
 		m_pImpl->Line :
@@ -100,7 +100,7 @@ _LUL_::LException::LException(
 	LCHAR const* const sMsg, 
 	LCHAR const* const sFunction,
 	LCHAR const* const sFile, 
-	const LINT32 line) noexcept
+	const LUINT32 line) noexcept
 	: m_Data(sMsg, sFunction, sFile, line)
 {
 	// Automatic logging of an exception.

@@ -1,16 +1,16 @@
 #ifndef LUL_EXCEPTIONS_H
 #define LUL_EXCEPTIONS_H
 
-#define L_EXCEPT() _LUL_::LException("An unknown exception occured.", __FUNCTION__, __FILE__, __LINE__)
-#define L_EXCEPT_MSG(customMsg) _LUL_::LException(customMsg, __FUNCTION__, __FILE__, __LINE__)
-#define L_EXCEPT_BAD_ALLOC() _LUL_::LExceptBadAlloc(__FUNCTION__, __FILE__, __LINE__)
-#define L_EXCEPT_OUTSIDE_OF_BUFFER() _LUL_::LExceptOutsideOfBuffer(__FUNCTION__, __FILE__, __LINE__)
+#define L_EXCEPTION() _LUL_::LException("An unknown exception occured.", __FUNCTION__, __FILE__, __LINE__)
+#define L_EXCEPTION_W_MSG(customMsg) _LUL_::LException(customMsg, __FUNCTION__, __FILE__, __LINE__)
+#define L_EXCEPTION_BAD_ALLOC() _LUL_::LExceptBadAlloc(__FUNCTION__, __FILE__, __LINE__)
+#define L_EXCEPTION_OUTSIDE_OF_BUFFER() _LUL_::LExceptOutsideOfBuffer(__FUNCTION__, __FILE__, __LINE__)
 
 
 namespace _LUL_
 {
 	constexpr LCHAR DataCorruptionMessage[] = "Exception data is corrupted.";
-	constexpr LINT32 DataCorruptionValue = -1;
+	constexpr LUINT32 DataCorruptionValue = -1;
 
 	struct LUL_API LExceptionData
 	{
@@ -20,7 +20,7 @@ namespace _LUL_
 			LCHAR const* const sMsg,
 			LCHAR const* const sFunction,
 			LCHAR const* const sFile,
-			const LINT32 line) noexcept;
+			const LUINT32 line) noexcept;
 
 		~LExceptionData() noexcept;
 
@@ -30,7 +30,7 @@ namespace _LUL_
 		const LCHAR* GetMsg() noexcept;
 		const LCHAR* GetFile() noexcept;
 		const LCHAR* GetFunctionName() noexcept;
-		const LINT32& GetLine() noexcept;
+		const LUINT32& GetLine() noexcept;
 
 	private:	
 		struct Impl;
@@ -48,7 +48,7 @@ namespace _LUL_
 			LCHAR const* const sMsg,
 			LCHAR const* const sFunction,
 			LCHAR const* const sFile,
-			const LINT32 line) noexcept;
+			const LUINT32 line) noexcept;
 
 		~LException() noexcept = default;
 
@@ -57,6 +57,8 @@ namespace _LUL_
 
 	public:
 		LCHAR const* const What() { return m_Data.GetMsg(); }
+
+		const LExceptionData& Data() { return m_Data; }
 
 	};
 
@@ -68,7 +70,7 @@ namespace _LUL_
 		LExceptBadAlloc(
 			LCHAR const* const sFunction,
 			LCHAR const* const sFile,
-			const LINT32 line) noexcept 
+			const LUINT32 line) noexcept
 			: LException("Bad allocation.", sFunction, sFile, line) {};
 	};
 
@@ -76,12 +78,12 @@ namespace _LUL_
 		: public _LUL_::LException
 	{
 	public:
-		LExceptOutsideOfBuffer() noexcept : LException("Index was outside of buffer's space.") {};
+		LExceptOutsideOfBuffer() noexcept : LException("Index was outside of buffer.") {};
 		LExceptOutsideOfBuffer(
 			LCHAR const* const sFunction,
 			LCHAR const* const sFile,
-			const LINT32 line) noexcept
-			: LException("Index was outside of buffer's space.", sFunction, sFile, line) {};
+			const LUINT32 line) noexcept
+			: LException("Index was outside of buffer.", sFunction, sFile, line) {};
 	};
 }
 

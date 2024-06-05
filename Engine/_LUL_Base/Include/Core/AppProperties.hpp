@@ -14,7 +14,7 @@ namespace _LUL_
 		friend AppManager;
 
 		LTIME m_BootTime = { 0 };
-		const LWCHAR* m_KnownPaths[LUL_SIZE_OF_KNOWN_PATHS] = { 0 };
+		const LWCHAR* m_KnownPaths[LUL_AMOUNT_OF_KNOWN_PATHS] = { 0 };
 
 		AppProps() noexcept = default;
 

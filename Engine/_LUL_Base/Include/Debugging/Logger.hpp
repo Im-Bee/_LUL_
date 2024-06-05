@@ -14,6 +14,10 @@ namespace _LUL_
 		Exception	= 0x08
 	};
 
+	typedef _LUL_::LTuple<Severity, LWCHAR*> LOG_MESSAGE;
+	typedef _LUL_::LVector<LOG_MESSAGE> LOG_MESSAGES_LIST;
+	constexpr LUINT32 LogDelayMs = 50;
+
 	/**
 	* Singleton that writes logs, 
 	* creates and manages log files. */
@@ -64,7 +68,7 @@ namespace _LUL_
 
 		std::atomic<LBOOL> m_bThreadStatus = false;
 
-		// _LUL_::LTuple<Severity, LWCHAR*, LCHAR*> m_
+		LOG_MESSAGES_LIST m_vMessages = {};
 
 	};
 }

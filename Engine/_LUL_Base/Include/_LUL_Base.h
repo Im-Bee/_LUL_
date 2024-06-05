@@ -21,6 +21,7 @@
 #endif
 #pragma endregion
 
+#ifdef __cplusplus 
 #pragma region System specific headers
 #if _WIN32 || _WIN64
 #	ifndef WIN32_LEAN_AND_MEAN 
@@ -29,11 +30,11 @@
 #include <Windows.h>
 #endif // !_WIN32
 
+#include <chrono>
 #include <exception>
 #include <thread>
 #pragma endregion
 
-#ifdef __cplusplus 
 #pragma region Export/Import macro
 #if _WIN32 || _WIN64
 #	ifdef _LUL_EXPORT
@@ -73,8 +74,8 @@
 #include "Integration/Types.h"
 #include "Integration/Limits.h"
 #include "Debugging/Exceptions.hpp"
-#include "Utilities/LVector.hpp"
 #include "Utilities/LPair.hpp"
+#include "Utilities/LVector.hpp"
 #include "Utilities/LTuple.hpp"
 #include "Utilities/LQueue.hpp"
 #pragma warning(push)

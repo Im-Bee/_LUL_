@@ -8,7 +8,7 @@ namespace _LUL_
 	template<class... UTypes>
 	struct LTuple : public _LUL_::LAllocatorU
 	{
-		LTuple(UTypes&&... inputs)
+		LTuple(UTypes... inputs)
 		{
 			for (const auto p : { inputs... })
 				this->AddSlot(sizeof(p));

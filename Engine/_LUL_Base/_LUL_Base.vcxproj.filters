@@ -63,9 +63,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Include\_LUL_Base.h">
-      <Filter>PCH</Filter>
-    </ClInclude>
     <ClInclude Include="Include\Debugging\Logger.hpp">
       <Filter>Public\Debugging</Filter>
     </ClInclude>
@@ -107,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="Include\Utilities\LQueue.hpp">
       <Filter>Public\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\_LUL_Base.h">
+      <Filter>PCH</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

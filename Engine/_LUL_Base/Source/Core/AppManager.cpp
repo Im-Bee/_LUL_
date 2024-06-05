@@ -16,7 +16,7 @@ void _LUL_::AppManager::StartApplication(IApplication* pEntryapp)
 
 	if (m_pAppInstance != nullptr)
 	{
-		throw new L_EXCEPT_MSG("An instance of application already exists.");
+		throw new L_EXCEPTION_W_MSG("An instance of application already exists.");
 	}
 
 	// Try to create an instance of application

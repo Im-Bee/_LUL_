@@ -140,7 +140,7 @@ namespace _LUL_
 		{
 			if (i >= m_uCapacity)
 			{
-				throw new L_EXCEPT_OUTSIDE_OF_BUFFER();
+				throw new L_EXCEPTION_OUTSIDE_OF_BUFFER();
 			}
 
 			return (reinterpret_cast<T*>(_RawBuffer)[i]);
@@ -148,10 +148,10 @@ namespace _LUL_
 
 		T& operator[](const LIterator& i)
 		{
-			if (i <   Begin() ||
-				i >= (End()))
+			if (i <   this->begin() ||
+				i >= (this->end()))
 			{
-				throw new L_EXCEPT_OUTSIDE_OF_BUFFER();
+				throw new L_EXCEPTION_OUTSIDE_OF_BUFFER();
 			}
 
 			return (reinterpret_cast<T*>(i.Location));
@@ -170,9 +170,6 @@ namespace _LUL_
 			_Resize((uAmount * m_uSizeOfT) - this->GetByteCapacity());
 			m_uCapacity += (uAmount - m_uCapacity);
 		}
-
-		const MEM_LOCATION& Begin() { return this->_BeginML(); }
-		const MEM_LOCATION& End() { return this->_EndML(); }
 
 	protected:
 		void Resize()
@@ -197,7 +194,7 @@ namespace _LUL_
 		{
 			if (uIndex >= m_ByteOffsets.Capacity())
 			{
-				throw new L_EXCEPT_OUTSIDE_OF_BUFFER();
+				throw new L_EXCEPTION_OUTSIDE_OF_BUFFER();
 			}
 
 			MEM_LOCATION offset = this->_BeginML();
@@ -208,7 +205,7 @@ namespace _LUL_
 
 			if (offset > this->_EndML() - m_ByteOffsets[uIndex])
 			{
-				throw new L_EXCEPT_OUTSIDE_OF_BUFFER();
+				throw new L_EXCEPTION_OUTSIDE_OF_BUFFER();
 			}
 			return reinterpret_cast<void*>(offset);
 		}
@@ -246,7 +243,7 @@ namespace _LUL_
 		{
 			m_RawBuffer = reinterpret_cast<T*>(HeapAlloc(GetProcessHeap(), NULL, m_uByteCapacity));
 			if (m_RawBuffer == nullptr)
-				throw new L_EXCEPT_BAD_ALLOC();
+				throw new L_EXCEPTION_BAD_ALLOC();
 			m_uBegBuffPosition = m_uCurBuffPosition = reinterpret_cast<MEM_LOCATION>(m_RawBuffer);
 			m_uEndBuffPosition = m_uBegBuffPosition + m_uByteCapacity;
 		}
@@ -272,7 +269,6 @@ namespace _LUL_
 				this->m_uByteCapacity,
 				(void*)other.m_uBegBuffPosition,
 				other.m_uByteCapacity);
-			// L_CONSOLE_OUT(Error, L"DExperimentalAllocator(const DExperimentalAllocator<T, R>& other) noexcept: errno_t %d", e);
 
 			LUINT64 otherBtoCdiff = other.m_uCurBuffPosition - other.m_uBegBuffPosition;
 			this->m_uCurBuffPosition = this->m_uBegBuffPosition + otherBtoCdiff;
@@ -286,14 +282,14 @@ namespace _LUL_
 		T& operator[](const LIterator& location)
 		{
 			if (location.Location >= m_uCapacity)
-			 	throw new L_EXCEPT_OUTSIDE_OF_BUFFER();
+			 	throw new L_EXCEPTION_OUTSIDE_OF_BUFFER();
 
 			return *(T*)(m_uBegBuffPosition + (location.Location * m_uSizeT));
 		}
 		T& operator[](const MEM_LOCATION& location)
 		{
 			if (location >= m_uCapacity)
-				throw new L_EXCEPT_OUTSIDE_OF_BUFFER();
+				throw new L_EXCEPTION_OUTSIDE_OF_BUFFER();
 
 			return *(T*)(m_uBegBuffPosition + (location * m_uSizeT));
 		}
@@ -304,7 +300,7 @@ namespace _LUL_
 			auto tmpPtr = reinterpret_cast<T*>(HeapReAlloc(GetProcessHeap(), NULL, m_RawBuffer, m_uByteCapacity));
 			if (tmpPtr == nullptr)
 			{
-				throw new L_EXCEPT_BAD_ALLOC();
+				throw new L_EXCEPTION_BAD_ALLOC();
 			}
 
 			m_RawBuffer = tmpPtr;
